@@ -18,19 +18,29 @@ from DB_Search.semester_search import available_semesters
 from DB_Search.student_search import student_search_not_enrolled, student_search_last_year_and_results, student_search_per_course_per_lecturer
 
 
+
 # reusable performance tester
+
 def measure_performance(function, *args):
-    start = time.time()
-    result = function(*args)
-    end = time.time()
+    times = []
+
+    for i in range(10):
+        start = time.time()
+        result = function(*args)
+        end = time.time()
+        times.append(end - start)
+
+    avg_time = sum(times) / len(times)
+
     print(f"Function: {function.__name__}")
-    
+
     if result is None:
         print("Query failed, no rows returned.")
     else:
         print(f"Rows returned: {len(result)}")
-    print(f"Execution time: {end - start:.4f} seconds \n")
+
     process = psutil.Process(os.getpid())
+    print(f"Average execution time: {avg_time:.4f} seconds")
     print(f"Memory used: {process.memory_info().rss / (1024*1024):.2f} MB")
     print(f"CPU percent: {process.cpu_percent(interval=0.1)}%")
     print("--------------------------------")
@@ -52,7 +62,10 @@ performance_tests = [
 ]
 
 # run all performance tests
+def run_load_test(function, args, repeat=5):
+    for i in range(repeat):
+        measure_performance(function, *args)
+
 if __name__ == "__main__":
-    for test in performance_tests:
-        function, args = test
+    for function, args in performance_tests:
         measure_performance(function, *args)

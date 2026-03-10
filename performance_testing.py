@@ -1,11 +1,15 @@
 
+"""
+Perfrom Non-functional testing for all queries in DB_Search, 
+including queries execution time, resources utilisation, non-functional query validation , repeat run for checking average execution time to ensure stability. 
+"""
 import os
 import sys
 import time
 import psutil
 
 
-# ensure project root is on path so DB_Search can be imported from anywhere
+# Get the root directory of the project and add it to sys.path for imports
 root = os.path.dirname(os.path.dirname(__file__))
 if root not in sys.path:
     sys.path.insert(0, root)
@@ -19,7 +23,8 @@ from DB_Search.student_search import student_search_not_enrolled, student_search
 
 
 
-# reusable performance tester
+# Measure performance of a query function, excecute time, memory usage, CPU usage, and number of rows returned. Repeat the test 10 times to get an average execution time and check for stability.
+
 
 def measure_performance(function, *args):
     times = []
@@ -31,6 +36,7 @@ def measure_performance(function, *args):
         times.append(end - start)
 
     avg_time = sum(times) / len(times)
+    total_time = sum(times)
 
     print(f"Function: {function.__name__}")
 
@@ -40,31 +46,28 @@ def measure_performance(function, *args):
         print(f"Rows returned: {len(result)}")
 
     process = psutil.Process(os.getpid())
+    print(f"Total execution time: {total_time:.4f} seconds")
     print(f"Average execution time: {avg_time:.4f} seconds")
     print(f"Memory used: {process.memory_info().rss / (1024*1024):.2f} MB")
     print(f"CPU percent: {process.cpu_percent(interval=0.1)}%")
     print("--------------------------------")
     
-# list of queries to test (function, args)
+# List of queries to test (function, testing arguments)
 performance_tests = [
-    (available_courses, ()),
-    (available_departments, ()),
-    (search_expertise, ()),
-    (lectures_search_semester, (1,)),  # semester_id
-    (lecturer_search_per_course, ("CS101",)),  # course_code
+    (available_courses, ()),# no arguments needed for this query`
+    (available_departments, ()),# no arguments needed for this query
+    (search_expertise, ()), # no arguments needed for this query
+    (lectures_search_semester, (1,)),  # particular semester_id
+    (lecturer_search_per_course, ("CS101",)),  # particular course_code
     (lecturer_search_per_expertise, ("AI, Machine Learning",)),  # expertise
     (lecturer_search_per_department, ("Computer Science",)),  # department
     (search_courses_per_department_per_lecturer, ("Computer Science", "Dr. Alice Johnson")),  # department, lecturer
-    (available_semesters, ()), 
-    (student_search_not_enrolled, ()),
-    (student_search_last_year_and_results, ()),
+    (available_semesters, ()), # no arguments needed for this query
+    (student_search_not_enrolled, ()), # no arguments needed for this query
+    (student_search_last_year_and_results, ()), # no arguments needed for this query
     (student_search_per_course_per_lecturer, ("CS101", "Dr. Alice Johnson"))  # course_code, lecturer_name
 ]
 
-# run all performance tests
-def run_load_test(function, args, repeat=5):
-    for i in range(repeat):
-        measure_performance(function, *args)
 
 if __name__ == "__main__":
     for function, args in performance_tests:

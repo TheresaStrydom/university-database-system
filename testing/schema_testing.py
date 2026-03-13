@@ -70,3 +70,5 @@ def run_schema_tests():
     test_views_exist()
 
     print("\n--- Schema Testing Complete ---\n")
+
+run_schema_tests()

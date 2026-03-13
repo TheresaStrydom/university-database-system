@@ -87,3 +87,5 @@ def run_query_tests():
     test_top_students()
 
     print("\n--- Query Testing Complete ---\n")
+
+run_query_tests()

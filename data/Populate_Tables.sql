@@ -781,10 +781,8 @@ VALUES
 (4, 28, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 5 (Program 2)
 (5, 1, 17, '2026-01-01', 'A', 93.00, 98.00, 'Active'),
-(5, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (5, 3, 16, '2025-08-25', 'F', 50.00, 65.00, 'Completed'),
 (5, 4, 17, '2026-01-01', 'A-', 91.50, 96.50, 'Active'),
-(5, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 6 (Program 3, Dept 1: Courses 1,2,3,4,25,26)
 (6, 1, 16, '2025-08-25', 'B', 80.00, 90.00, 'Completed'),
 (6, 2, 17, '2026-01-01', 'A', 94.00, 97.00, 'Active'),
@@ -814,9 +812,7 @@ VALUES
 -- Student 10 (Program 4)
 (10, 5, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
 (10, 6, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
-(10, 7, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (10, 8, 16, '2025-08-25', 'D', 66.00, 76.00, 'Completed'),
-(10, 22, 17, '2026-01-01', 'B', 84.00, 91.00, 'Active'),
 -- Student 11 (Program 5, Dept 2: Courses 5,6,7,8,23,24)
 (11, 5, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
 (11, 6, 17, '2026-01-01', 'A', 93.00, 97.00, 'Active'),
@@ -845,11 +841,8 @@ VALUES
 (14, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 15 (Program 7, Dept 3: Courses 9,10,11,12,5,6)
 (15, 9, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
-(15, 10, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (15, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (15, 12, 16, '2025-08-25', 'C', 78.00, 86.00, 'Completed'),
-(15, 5, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
-(15, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 16 (Program 7)
 (16, 9, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (16, 10, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
@@ -877,11 +870,8 @@ VALUES
 (19, 7, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 20 (Program 9, Dept 3: Courses 9,10,11,12,5,6)
 (20, 9, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
-(20, 10, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (20, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (20, 12, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(20, 5, 17, '2026-01-01', 'F', 59.00, 69.00, 'Active'),
-(20, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 21 (Program 9)
 (21, 9, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (21, 10, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
@@ -909,11 +899,8 @@ VALUES
 (24, 18, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
 -- Student 25 (Program 11, Dept 4: Courses 13,14,15,16,19,20)
 (25, 13, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
-(25, 14, 17, '2026-01-01', 'A', 93.00, 97.00, 'Active'),
 (25, 15, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (25, 16, 16, '2025-08-25', 'B+', 86.00, 93.00, 'Completed'),
-(25, 19, 17, '2026-01-01', 'D', 69.00, 79.00, 'Active'),
-(25, 20, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 26 (Program 11)
 (26, 13, 17, '2026-01-01', 'A', 94.00, 98.00, 'Active'),
 (26, 14, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
@@ -942,10 +929,8 @@ VALUES
 (29, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 30 (Program 13)
 (30, 17, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
-(30, 18, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (30, 19, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
 (30, 20, 17, '2026-01-01', 'C', 74.00, 83.00, 'Active'),
-(30, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 31 (Program 13)
 (31, 17, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (31, 18, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
@@ -1006,11 +991,8 @@ VALUES
 (39, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 40 (Program 18, Dept 6: Courses 21,22,23,24,25,26)
 (40, 21, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
-(40, 22, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (40, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (40, 24, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(40, 25, 17, '2026-01-01', 'F', 55.00, 70.00, 'Active'),
-(40, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 41 (Program 18)
 (41, 21, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (41, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
@@ -1039,10 +1021,8 @@ VALUES
 (44, 4, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 45 (Program 20)
 (45, 25, 17, '2026-01-01', 'A', 95.00, 98.00, 'Active'),
-(45, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (45, 27, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
 (45, 28, 17, '2026-01-01', 'F', 50.00, 65.00, 'Active'),
-(45, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 46 (Program 21, Dept 7: Courses 25,26,27,28,1,2)
 (46, 25, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
 (46, 26, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
@@ -1071,10 +1051,8 @@ VALUES
 (49, 33, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 50 (Program 22)
 (50, 29, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
-(50, 30, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (50, 31, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(50, 32, 16, '2025-08-25', 'F', 45.00, 60.00, 'Completed'),
-(50, 34, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active');
+(50, 32, 16, '2025-08-25', 'F', 45.00, 60.00, 'Completed');
 
 INSERT INTO ResearchProjects (project_title, principal_investigator_id, department_id, funding_source, funding_amount, start_date, end_date, description, publications, outcomes)
 VALUES

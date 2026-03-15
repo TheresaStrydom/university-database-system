@@ -1,11 +1,11 @@
 -- ============================================================================
 -- DUMMY DATA POPULATION SCRIPT (MySQL)
 -- ============================================================================
--- This script assumes the schema (LP.sql) has been executed first.
+-- This script assumes the schema (Create_Tables.sql) has been executed first.
 -- Run this after creating the database and tables.
 -- Inserts are in dependency order to avoid foreign key errors.
 
-USE liverpool_project;
+USE university_records;
 
 -- ============================================================================
 -- REFERENCE TABLES
@@ -59,21 +59,21 @@ VALUES
 
 INSERT INTO Departments (name, faculty, research_areas, head_lecturer_id, phone, email, office_location)
 VALUES
-('Computer Science', 'Engineering', 'AI, Machine Learning, Databases, Cybersecurity', 1, '123-456-7890', 'cs@uni.edu', 'Building A, Room 101'),
-('Electrical Engineering', 'Engineering', 'Power Systems, Electronics, Signal Processing', 4, '234-567-8901', 'ee@uni.edu', 'Building A, Room 201'),
-('Mechanical Engineering', 'Engineering', 'Robotics, Thermodynamics, Materials Science', 7, '345-678-9012', 'me@uni.edu', 'Building A, Room 301'),
-('Biology', 'Science', 'Genetics, Ecology, Microbiology, Biotechnology', 10, '456-789-0123', 'bio@uni.edu', 'Building B, Room 101'),
-('Chemistry', 'Science', 'Organic Chemistry, Inorganic Chemistry, Physical Chemistry', 13, '567-890-1234', 'chem@uni.edu', 'Building B, Room 201'),
-('Physics', 'Science', 'Quantum Mechanics, Astrophysics, Particle Physics', 16, '678-901-2345', 'phys@uni.edu', 'Building B, Room 301'),
-('Mathematics', 'Science', 'Algebra, Calculus, Statistics, Number Theory', 19, '789-012-3456', 'math@uni.edu', 'Building B, Room 401'),
-('Business Administration', 'Business', 'Finance, Marketing, Management, Entrepreneurship', 22, '890-123-4567', 'biz@uni.edu', 'Building C, Room 101'),
-('Economics', 'Business', 'Microeconomics, Macroeconomics, Econometrics', 25, '901-234-5678', 'econ@uni.edu', 'Building C, Room 201'),
-('Law', 'Law', 'Constitutional Law, Criminal Law, International Law', 28, '012-345-6789', 'law@uni.edu', 'Building D, Room 101'),
-('History', 'Humanities', 'Ancient History, Modern History, Cultural Studies', 31, '123-456-7891', 'hist@uni.edu', 'Building E, Room 101'),
-('English Literature', 'Humanities', 'Shakespeare, Modern Fiction, Poetry', 34, '234-567-8902', 'eng@uni.edu', 'Building E, Room 201'),
-('Psychology', 'Social Sciences', 'Cognitive Psychology, Clinical Psychology, Social Behavior', 37, '345-678-9013', 'psych@uni.edu', 'Building F, Room 101'),
-('Sociology', 'Social Sciences', 'Social Theory, Urban Studies, Inequality', 40, '456-789-0124', 'soc@uni.edu', 'Building F, Room 201'),
-('Art and Design', 'Arts', 'Graphic Design, Painting, Sculpture', 43, '567-890-1235', 'art@uni.edu', 'Building G, Room 101');
+('Computer Science', 'Engineering', 'AI, Machine Learning, Databases, Cybersecurity', NULL, '123-456-7890', 'cs@uni.edu', 'Building A, Room 101'),
+('Electrical Engineering', 'Engineering', 'Power Systems, Electronics, Signal Processing', NULL, '234-567-8901', 'ee@uni.edu', 'Building A, Room 201'),
+('Mechanical Engineering', 'Engineering', 'Robotics, Thermodynamics, Materials Science', NULL, '345-678-9012', 'me@uni.edu', 'Building A, Room 301'),
+('Biology', 'Science', 'Genetics, Ecology, Microbiology, Biotechnology', NULL, '456-789-0123', 'bio@uni.edu', 'Building B, Room 101'),
+('Chemistry', 'Science', 'Organic Chemistry, Inorganic Chemistry, Physical Chemistry', NULL, '567-890-1234', 'chem@uni.edu', 'Building B, Room 201'),
+('Physics', 'Science', 'Quantum Mechanics, Astrophysics, Particle Physics', NULL, '678-901-2345', 'phys@uni.edu', 'Building B, Room 301'),
+('Mathematics', 'Science', 'Algebra, Calculus, Statistics, Number Theory', NULL, '789-012-3456', 'math@uni.edu', 'Building B, Room 401'),
+('Business Administration', 'Business', 'Finance, Marketing, Management, Entrepreneurship', NULL, '890-123-4567', 'biz@uni.edu', 'Building C, Room 101'),
+('Economics', 'Business', 'Microeconomics, Macroeconomics, Econometrics', NULL, '901-234-5678', 'econ@uni.edu', 'Building C, Room 201'),
+('Law', 'Law', 'Constitutional Law, Criminal Law, International Law', NULL, '012-345-6789', 'law@uni.edu', 'Building D, Room 101'),
+('History', 'Humanities', 'Ancient History, Modern History, Cultural Studies', NULL, '123-456-7891', 'hist@uni.edu', 'Building E, Room 101'),
+('English Literature', 'Humanities', 'Shakespeare, Modern Fiction, Poetry', NULL, '234-567-8902', 'eng@uni.edu', 'Building E, Room 201'),
+('Psychology', 'Social Sciences', 'Cognitive Psychology, Clinical Psychology, Social Behavior', NULL, '345-678-9013', 'psych@uni.edu', 'Building F, Room 101'),
+('Sociology', 'Social Sciences', 'Social Theory, Urban Studies, Inequality', NULL, '456-789-0124', 'soc@uni.edu', 'Building F, Room 201'),
+('Art and Design', 'Arts', 'Graphic Design, Painting, Sculpture', NULL, '567-890-1235', 'art@uni.edu', 'Building G, Room 101');
 
 -- ============================================================================
 -- PEOPLE TABLES
@@ -126,6 +126,22 @@ VALUES
 ('Dr. Quentin Adams', 15, 'MFA, PhD in Design', 'Graphic Design', 'Visual Communication (2022), UI/UX (2023)', 'G101', 'quentin.a@uni.edu', '333-444-5559', 3, 'Digital Art'),
 ('Prof. Riley Brown', 15, 'PhD in Fine Arts', 'Painting, Sculpture', 'Abstract Art (2024), Installation (2025)', 'G102', 'riley.b@uni.edu', '444-555-6670', 4, 'Contemporary Art'),
 ('Dr. Sophia Clark', 15, 'MA in Sculpture, PhD', '3D Modeling', 'Digital Sculpture (2021), Materials (2024)', 'G103', 'sophia.c@uni.edu', '555-666-7781', 2, 'Art History');
+
+UPDATE Departments SET head_lecturer_id = 1 WHERE department_id = 1;
+UPDATE Departments SET head_lecturer_id = 4 WHERE department_id = 2;
+UPDATE Departments SET head_lecturer_id = 7 WHERE department_id = 3;
+UPDATE Departments SET head_lecturer_id = 10 WHERE department_id = 4;
+UPDATE Departments SET head_lecturer_id = 13 WHERE department_id = 5;
+UPDATE Departments SET head_lecturer_id = 16 WHERE department_id = 6;
+UPDATE Departments SET head_lecturer_id = 19 WHERE department_id = 7;
+UPDATE Departments SET head_lecturer_id = 22 WHERE department_id = 8;
+UPDATE Departments SET head_lecturer_id = 25 WHERE department_id = 9;
+UPDATE Departments SET head_lecturer_id = 28 WHERE department_id = 10;
+UPDATE Departments SET head_lecturer_id = 31 WHERE department_id = 11;
+UPDATE Departments SET head_lecturer_id = 34 WHERE department_id = 12;
+UPDATE Departments SET head_lecturer_id = 37 WHERE department_id = 13;
+UPDATE Departments SET head_lecturer_id = 40 WHERE department_id = 14;
+UPDATE Departments SET head_lecturer_id = 43 WHERE department_id = 15;
 
 INSERT INTO NonAcademicStaff (name, job_title, department_id, employment_type, contract_start_date, contract_end_date, salary_band, contact_info, phone, emergency_contact_name, emergency_contact_phone)
 VALUES
@@ -232,63 +248,63 @@ VALUES
 ('CS101', 'Introduction to Programming', 'Basics of programming in Python and Java.', 1, 1, 20, NULL, 100, 80, 'MWF 9:00-10:00 AM'),
 ('CS201', 'Data Structures', 'Arrays, linked lists, trees, and graphs.', 1, 2, 20, 'CS101', 80, 65, 'TTh 10:30-12:00 PM'),
 ('CS301', 'Machine Learning', 'Supervised and unsupervised learning algorithms.', 1, 3, 20, 'CS201', 50, 40, 'MWF 1:00-2:00 PM'),
-('CS401', 'Database Systems', 'SQL, relational models, and NoSQL.', 1, 3, 25, 'CS201', 60, 45, 'TTh 2:30-4:00 PM'),
+('CS401', 'Database Systems', 'SQL, relational models, and NoSQL.', 1, 4, 25, 'CS201', 60, 45, 'TTh 2:30-4:00 PM'),
 ('EE101', 'Circuit Theory', 'Basic electrical circuits and analysis.', 2, 1, 20, NULL, 90, 75, 'MWF 9:00-10:00 AM'),
 ('EE201', 'Digital Electronics', 'Logic gates, flip-flops, and digital design.', 2, 2, 20, 'EE101', 70, 55, 'TTh 10:30-12:00 PM'),
 ('EE301', 'Power Systems', 'Transmission, distribution, and renewable energy.', 2, 3, 25, 'EE201', 50, 35, 'MWF 1:00-2:00 PM'),
-('EE401', 'Signal Processing', 'Fourier transforms and digital filters.', 2, 3, 20, 'EE201', 40, 30, 'TTh 2:30-4:00 PM'),
+('EE401', 'Signal Processing', 'Fourier transforms and digital filters.', 2, 4, 20, 'EE201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('ME101', 'Engineering Mechanics', 'Statics and dynamics principles.', 3, 1, 20, NULL, 100, 85, 'MWF 9:00-10:00 AM'),
 ('ME201', 'Thermodynamics', 'Laws of thermodynamics and heat transfer.', 3, 2, 20, 'ME101', 80, 60, 'TTh 10:30-12:00 PM'),
 ('ME301', 'Robotics', 'Kinematics, control, and robot programming.', 3, 3, 25, 'ME201', 50, 40, 'MWF 1:00-2:00 PM'),
-('ME401', 'Materials Engineering', 'Properties and applications of materials.', 3, 3, 20, 'ME201', 60, 45, 'TTh 2:30-4:00 PM'),
+('ME401', 'Materials Engineering', 'Properties and applications of materials.', 3, 4, 20, 'ME201', 60, 45, 'TTh 2:30-4:00 PM'),
 ('BIO101', 'General Biology', 'Cells, genetics, and evolution.', 4, 1, 20, NULL, 120, 100, 'MWF 9:00-10:00 AM'),
 ('BIO201', 'Microbiology', 'Bacteria, viruses, and immune systems.', 4, 2, 20, 'BIO101', 90, 70, 'TTh 10:30-12:00 PM'),
 ('BIO301', 'Ecology', 'Ecosystems, biodiversity, and conservation.', 4, 3, 20, 'BIO201', 60, 45, 'MWF 1:00-2:00 PM'),
-('BIO401', 'Biotechnology', 'Genetic engineering and applications.', 4, 3, 25, 'BIO201', 40, 30, 'TTh 2:30-4:00 PM'),
+('BIO401', 'Biotechnology', 'Genetic engineering and applications.', 4, 4, 25, 'BIO201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('CHEM101', 'General Chemistry', 'Atoms, molecules, and reactions.', 5, 1, 20, NULL, 100, 80, 'MWF 9:00-10:00 AM'),
 ('CHEM201', 'Organic Chemistry', 'Carbon compounds and synthesis.', 5, 2, 20, 'CHEM101', 80, 60, 'TTh 10:30-12:00 PM'),
 ('CHEM301', 'Physical Chemistry', 'Thermodynamics and quantum mechanics in chemistry.', 5, 3, 25, 'CHEM201', 50, 35, 'MWF 1:00-2:00 PM'),
-('CHEM401', 'Inorganic Chemistry', 'Coordination compounds and metals.', 5, 3, 20, 'CHEM201', 40, 25, 'TTh 2:30-4:00 PM'),
+('CHEM401', 'Inorganic Chemistry', 'Coordination compounds and metals.', 5, 4, 20, 'CHEM201', 40, 25, 'TTh 2:30-4:00 PM'),
 ('PHYS101', 'Introductory Physics', 'Mechanics, heat, and sound.', 6, 1, 20, NULL, 90, 75, 'MWF 9:00-10:00 AM'),
 ('PHYS201', 'Electromagnetism', 'Electric fields, magnetism, and circuits.', 6, 2, 20, 'PHYS101', 70, 55, 'TTh 10:30-12:00 PM'),
 ('PHYS301', 'Quantum Physics', 'Wave functions and particles.', 6, 3, 20, 'PHYS201', 50, 35, 'MWF 1:00-2:00 PM'),
-('PHYS401', 'Astrophysics', 'Stars, galaxies, and cosmology.', 6, 3, 25, 'PHYS201', 40, 30, 'TTh 2:30-4:00 PM'),
+('PHYS401', 'Astrophysics', 'Stars, galaxies, and cosmology.', 6, 4, 25, 'PHYS201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('MATH101', 'Calculus I', 'Limits, derivatives, and integrals.', 7, 1, 20, NULL, 100, 85, 'MWF 9:00-10:00 AM'),
 ('MATH201', 'Linear Algebra', 'Vectors, matrices, and systems.', 7, 2, 20, 'MATH101', 80, 65, 'TTh 10:30-12:00 PM'),
 ('MATH301', 'Statistics', 'Probability, distributions, and inference.', 7, 3, 20, 'MATH201', 60, 45, 'MWF 1:00-2:00 PM'),
-('MATH401', 'Number Theory', 'Primes, congruences, and cryptography.', 7, 3, 25, 'MATH201', 40, 25, 'TTh 2:30-4:00 PM'),
+('MATH401', 'Number Theory', 'Primes, congruences, and cryptography.', 7, 4, 25, 'MATH201', 40, 25, 'TTh 2:30-4:00 PM'),
 ('BUS101', 'Introduction to Business', 'Management, finance, and operations.', 8, 1, 20, NULL, 150, 120, 'MWF 9:00-10:00 AM'),
 ('BUS201', 'Marketing Principles', 'Consumer behavior and strategies.', 8, 2, 20, 'BUS101', 100, 80, 'TTh 10:30-12:00 PM'),
 ('BUS301', 'Finance Management', 'Investments, budgeting, and analysis.', 8, 3, 25, 'BUS201', 80, 60, 'MWF 1:00-2:00 PM'),
-('BUS401', 'Entrepreneurship', 'Starting and managing new ventures.', 8, 3, 20, 'BUS201', 60, 45, 'TTh 2:30-4:00 PM'),
+('BUS401', 'Entrepreneurship', 'Starting and managing new ventures.', 8, 4, 20, 'BUS201', 60, 45, 'TTh 2:30-4:00 PM'),
 ('ECON101', 'Microeconomics', 'Supply, demand, and markets.', 9, 1, 20, NULL, 120, 100, 'MWF 9:00-10:00 AM'),
 ('ECON201', 'Macroeconomics', 'GDP, inflation, and policy.', 9, 2, 20, 'ECON101', 90, 70, 'TTh 10:30-12:00 PM'),
 ('ECON301', 'Econometrics', 'Regression and economic modeling.', 9, 3, 20, 'ECON201', 50, 35, 'MWF 1:00-2:00 PM'),
-('ECON401', 'International Economics', 'Trade, exchange rates, and globalization.', 9, 3, 25, 'ECON201', 40, 30, 'TTh 2:30-4:00 PM'),
+('ECON401', 'International Economics', 'Trade, exchange rates, and globalization.', 9, 4, 25, 'ECON201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('LAW101', 'Introduction to Law', 'Legal systems and principles.', 10, 1, 20, NULL, 80, 60, 'MWF 9:00-10:00 AM'),
 ('LAW201', 'Constitutional Law', 'Rights, government, and judiciary.', 10, 2, 20, 'LAW101', 60, 45, 'TTh 10:30-12:00 PM'),
 ('LAW301', 'Criminal Law', 'Crimes, defenses, and procedures.', 10, 3, 25, 'LAW201', 50, 35, 'MWF 1:00-2:00 PM'),
-('LAW401', 'International Law', 'Treaties and global disputes.', 10, 3, 20, 'LAW201', 40, 25, 'TTh 2:30-4:00 PM'),
+('LAW401', 'International Law', 'Treaties and global disputes.', 10, 4, 20, 'LAW201', 40, 25, 'TTh 2:30-4:00 PM'),
 ('HIST101', 'World History', 'Ancient civilizations to modern era.', 11, 1, 20, NULL, 100, 80, 'MWF 9:00-10:00 AM'),
 ('HIST201', 'European History', 'Middle Ages to Enlightenment.', 11, 2, 20, 'HIST101', 70, 55, 'TTh 10:30-12:00 PM'),
 ('HIST301', 'American History', 'Colonial to contemporary US.', 11, 3, 20, 'HIST201', 50, 35, 'MWF 1:00-2:00 PM'),
-('HIST401', 'Cultural History', 'Art, society, and traditions.', 11, 3, 25, 'HIST201', 40, 30, 'TTh 2:30-4:00 PM'),
+('HIST401', 'Cultural History', 'Art, society, and traditions.', 11, 4, 25, 'HIST201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('ENG101', 'English Composition', 'Writing and rhetoric skills.', 12, 1, 20, NULL, 120, 100, 'MWF 9:00-10:00 AM'),
 ('ENG201', 'British Literature', 'Chaucer to modern authors.', 12, 2, 20, 'ENG101', 80, 60, 'TTh 10:30-12:00 PM'),
 ('ENG301', 'American Literature', 'Colonial to contemporary works.', 12, 3, 20, 'ENG201', 60, 45, 'MWF 1:00-2:00 PM'),
-('ENG401', 'Creative Writing', 'Fiction and poetry workshops.', 12, 3, 25, 'ENG201', 40, 25, 'TTh 2:30-4:00 PM'),
+('ENG401', 'Creative Writing', 'Fiction and poetry workshops.', 12, 4, 25, 'ENG201', 40, 25, 'TTh 2:30-4:00 PM'),
 ('PSY101', 'Introduction to Psychology', 'Behavior, mind, and mental processes.', 13, 1, 20, NULL, 150, 120, 'MWF 9:00-10:00 AM'),
 ('PSY201', 'Cognitive Psychology', 'Memory, perception, and thinking.', 13, 2, 20, 'PSY101', 100, 80, 'TTh 10:30-12:00 PM'),
 ('PSY301', 'Social Psychology', 'Group behavior and attitudes.', 13, 3, 25, 'PSY201', 70, 50, 'MWF 1:00-2:00 PM'),
-('PSY401', 'Clinical Psychology', 'Diagnosis and therapy methods.', 13, 3, 20, 'PSY201', 50, 35, 'TTh 2:30-4:00 PM'),
+('PSY401', 'Clinical Psychology', 'Diagnosis and therapy methods.', 13, 4, 20, 'PSY201', 50, 35, 'TTh 2:30-4:00 PM'),
 ('SOC101', 'Introduction to Sociology', 'Society, culture, and institutions.', 14, 1, 20, NULL, 120, 90, 'MWF 9:00-10:00 AM'),
 ('SOC201', 'Social Inequality', 'Class, race, and gender dynamics.', 14, 2, 20, 'SOC101', 80, 60, 'TTh 10:30-12:00 PM'),
 ('SOC301', 'Urban Sociology', 'Cities, communities, and development.', 14, 3, 20, 'SOC201', 60, 45, 'MWF 1:00-2:00 PM'),
-('SOC401', 'Global Sociology', 'International issues and globalization.', 14, 3, 25, 'SOC201', 40, 30, 'TTh 2:30-4:00 PM'),
+('SOC401', 'Global Sociology', 'International issues and globalization.', 14, 4, 25, 'SOC201', 40, 30, 'TTh 2:30-4:00 PM'),
 ('ART101', 'Introduction to Art', 'Art history and appreciation.', 15, 1, 20, NULL, 80, 60, 'MWF 9:00-10:00 AM'),
 ('ART201', 'Graphic Design', 'Digital tools and visual communication.', 15, 2, 20, 'ART101', 60, 45, 'TTh 10:30-12:00 PM'),
 ('ART301', 'Painting Techniques', 'Oils, acrylics, and composition.', 15, 3, 25, 'ART201', 40, 30, 'MWF 1:00-2:00 PM'),
-('ART401', 'Sculpture', '3D forms and materials.', 15, 3, 20, 'ART201', 30, 20, 'TTh 2:30-4:00 PM');
+('ART401', 'Sculpture', '3D forms and materials.', 15, 4, 20, 'ART201', 30, 20, 'TTh 2:30-4:00 PM');
 
 INSERT INTO Students (name, date_of_birth, contact_info, phone, address, program_id, year_of_study, graduation_status, advisor_id, enrollment_date)
 VALUES
@@ -739,34 +755,34 @@ INSERT INTO Enrollments (student_id, course_id, semester_id, enrollment_date, gr
 VALUES
 -- Student 1 (Program 1, Dept 1: Courses from program 1 - 1,2,3,4,25,26)
 (1, 1, 16, '2025-08-25', 'A', 95.00, 98.50, 'Completed'),
-(1, 2, 17, '2026-01-01', 'B+', 88.00, 95.00, 'Active'),
+(1, 2, 17, '2026-01-01', 'C', 75.00, 85.00, 'Active'),
 (1, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(1, 4, 16, '2025-08-25', 'A-', 92.50, 97.00, 'Completed'),
+(1, 4, 16, '2025-08-25', 'D', 65.00, 78.00, 'Completed'),
 (1, 25, 17, '2026-01-01', 'B', 85.00, 92.50, 'Active'),
 (1, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 2 (Program 1)
 (2, 1, 16, '2025-08-25', 'B+', 87.00, 94.00, 'Completed'),
-(2, 2, 17, '2026-01-01', 'A', 94.00, 96.50, 'Active'),
+(2, 2, 17, '2026-01-01', 'F', 55.00, 70.00, 'Active'),
 (2, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(2, 4, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
+(2, 4, 16, '2025-08-25', 'C', 72.00, 82.00, 'Completed'),
 (2, 25, 17, '2026-01-01', 'A-', 91.00, 95.50, 'Active'),
 -- Student 3 (Program 1)
 (3, 1, 17, '2026-01-01', 'A-', 91.00, 97.50, 'Active'),
 (3, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (3, 3, 16, '2025-08-25', 'B+', 89.00, 95.50, 'Completed'),
-(3, 4, 17, '2026-01-01', 'A', 96.00, 98.00, 'Active'),
+(3, 4, 17, '2026-01-01', 'D', 68.00, 75.00, 'Active'),
 (3, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 4 (Program 2, Dept 1: Courses 1,2,3,4,27,28)
 (4, 1, 16, '2025-08-25', 'B', 84.00, 92.00, 'Completed'),
 (4, 2, 17, '2026-01-01', 'A-', 90.00, 96.00, 'Active'),
 (4, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(4, 4, 16, '2025-08-25', 'B+', 88.50, 94.50, 'Completed'),
+(4, 4, 16, '2025-08-25', 'C', 76.00, 84.00, 'Completed'),
 (4, 27, 17, '2026-01-01', 'A', 95.50, 97.50, 'Active'),
 (4, 28, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 5 (Program 2)
 (5, 1, 17, '2026-01-01', 'A', 93.00, 98.00, 'Active'),
 (5, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(5, 3, 16, '2025-08-25', 'B+', 87.50, 94.00, 'Completed'),
+(5, 3, 16, '2025-08-25', 'F', 50.00, 65.00, 'Completed'),
 (5, 4, 17, '2026-01-01', 'A-', 91.50, 96.50, 'Active'),
 (5, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 6 (Program 3, Dept 1: Courses 1,2,3,4,25,26)
@@ -774,12 +790,12 @@ VALUES
 (6, 2, 17, '2026-01-01', 'A', 94.00, 97.00, 'Active'),
 (6, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (6, 4, 16, '2025-08-25', 'B+', 86.00, 93.00, 'Completed'),
-(6, 25, 17, '2026-01-01', 'A-', 90.50, 95.50, 'Active'),
+(6, 25, 17, '2026-01-01', 'C', 73.00, 80.00, 'Active'),
 (6, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 7 (Program 3)
 (7, 1, 17, '2026-01-01', 'A', 95.00, 98.00, 'Active'),
 (7, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(7, 3, 16, '2025-08-25', 'B', 82.50, 91.50, 'Completed'),
+(7, 3, 16, '2025-08-25', 'D', 62.00, 72.00, 'Completed'),
 (7, 4, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
 (7, 25, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 8 (Program 4, Dept 2: Courses 5,6,7,8,21,22)
@@ -787,19 +803,19 @@ VALUES
 (8, 6, 17, '2026-01-01', 'B+', 88.00, 94.00, 'Active'),
 (8, 7, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (8, 8, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
-(8, 21, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
+(8, 21, 17, '2026-01-01', 'F', 58.00, 68.00, 'Active'),
 (8, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 9 (Program 4)
 (9, 5, 17, '2026-01-01', 'B+', 89.00, 95.00, 'Active'),
 (9, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (9, 7, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
-(9, 8, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
+(9, 8, 17, '2026-01-01', 'C', 74.00, 83.00, 'Active'),
 (9, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 10 (Program 4)
 (10, 5, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
 (10, 6, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (10, 7, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(10, 8, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
+(10, 8, 16, '2025-08-25', 'D', 66.00, 76.00, 'Completed'),
 (10, 22, 17, '2026-01-01', 'B', 84.00, 91.00, 'Active'),
 -- Student 11 (Program 5, Dept 2: Courses 5,6,7,8,23,24)
 (11, 5, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
@@ -811,12 +827,12 @@ VALUES
 -- Student 12 (Program 5)
 (12, 5, 17, '2026-01-01', 'A', 94.00, 98.00, 'Active'),
 (12, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(12, 7, 16, '2025-08-25', 'B', 84.00, 91.00, 'Completed'),
+(12, 7, 16, '2025-08-25', 'C', 77.00, 85.00, 'Completed'),
 (12, 8, 17, '2026-01-01', 'A-', 90.50, 96.00, 'Active'),
 (12, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 13 (Program 6, Dept 2: Courses 5,6,7,8,21,22)
 (13, 5, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
-(13, 6, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
+(13, 6, 17, '2026-01-01', 'F', 52.00, 65.00, 'Active'),
 (13, 7, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (13, 8, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
 (13, 21, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
@@ -825,33 +841,33 @@ VALUES
 (14, 5, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (14, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (14, 7, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(14, 8, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(14, 8, 17, '2026-01-01', 'D', 63.00, 73.00, 'Active'),
 (14, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 15 (Program 7, Dept 3: Courses 9,10,11,12,5,6)
 (15, 9, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
 (15, 10, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (15, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(15, 12, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
+(15, 12, 16, '2025-08-25', 'C', 78.00, 86.00, 'Completed'),
 (15, 5, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
 (15, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 16 (Program 7)
 (16, 9, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (16, 10, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (16, 11, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
-(16, 12, 17, '2026-01-01', 'B', 84.00, 92.00, 'Active'),
+(16, 12, 17, '2026-01-01', 'F', 48.00, 62.00, 'Active'),
 (16, 5, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 17 (Program 7)
 (17, 9, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (17, 10, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (17, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (17, 12, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
-(17, 6, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
+(17, 6, 17, '2026-01-01', 'C', 71.00, 81.00, 'Active'),
 -- Student 18 (Program 8, Dept 3: Courses 9,10,11,12,7,8)
 (18, 9, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
 (18, 10, 17, '2026-01-01', 'A', 93.00, 97.00, 'Active'),
 (18, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (18, 12, 16, '2025-08-25', 'B+', 86.00, 93.00, 'Completed'),
-(18, 7, 17, '2026-01-01', 'A-', 91.00, 95.00, 'Active'),
+(18, 7, 17, '2026-01-01', 'D', 67.00, 77.00, 'Active'),
 (18, 8, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 19 (Program 8)
 (19, 9, 17, '2026-01-01', 'A', 94.00, 98.00, 'Active'),
@@ -864,39 +880,39 @@ VALUES
 (20, 10, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (20, 11, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (20, 12, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(20, 5, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
+(20, 5, 17, '2026-01-01', 'F', 59.00, 69.00, 'Active'),
 (20, 6, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 21 (Program 9)
 (21, 9, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (21, 10, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (21, 11, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(21, 12, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(21, 12, 17, '2026-01-01', 'C', 79.00, 87.00, 'Active'),
 (21, 5, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 22 (Program 10, Dept 4: Courses 13,14,15,16,17,18)
 (22, 13, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
 (22, 14, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (22, 15, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(22, 16, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
+(22, 16, 16, '2025-08-25', 'D', 64.00, 74.00, 'Completed'),
 (22, 17, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
 (22, 18, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 23 (Program 10)
 (23, 13, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (23, 14, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (23, 15, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
-(23, 16, 17, '2026-01-01', 'B', 84.00, 92.00, 'Active'),
+(23, 16, 17, '2026-01-01', 'F', 45.00, 60.00, 'Active'),
 (23, 17, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 24 (Program 10)
 (24, 13, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (24, 14, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (24, 15, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(24, 16, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
+(24, 16, 16, '2025-08-25', 'C', 70.00, 80.00, 'Completed'),
 (24, 18, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
 -- Student 25 (Program 11, Dept 4: Courses 13,14,15,16,19,20)
 (25, 13, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
 (25, 14, 17, '2026-01-01', 'A', 93.00, 97.00, 'Active'),
 (25, 15, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (25, 16, 16, '2025-08-25', 'B+', 86.00, 93.00, 'Completed'),
-(25, 19, 17, '2026-01-01', 'A-', 91.00, 95.00, 'Active'),
+(25, 19, 17, '2026-01-01', 'D', 69.00, 79.00, 'Active'),
 (25, 20, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 26 (Program 11)
 (26, 13, 17, '2026-01-01', 'A', 94.00, 98.00, 'Active'),
@@ -909,13 +925,13 @@ VALUES
 (27, 14, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (27, 15, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (27, 16, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(27, 17, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
+(27, 17, 17, '2026-01-01', 'C', 76.00, 84.00, 'Active'),
 (27, 18, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 28 (Program 12)
 (28, 13, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (28, 14, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (28, 15, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(28, 16, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(28, 16, 17, '2026-01-01', 'F', 54.00, 69.00, 'Active'),
 (28, 17, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 29 (Program 13, Dept 5: Courses 17,18,19,20,21,22)
 (29, 17, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
@@ -928,20 +944,20 @@ VALUES
 (30, 17, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (30, 18, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (30, 19, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
-(30, 20, 17, '2026-01-01', 'B', 84.00, 92.00, 'Active'),
+(30, 20, 17, '2026-01-01', 'C', 74.00, 83.00, 'Active'),
 (30, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 31 (Program 13)
 (31, 17, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (31, 18, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (31, 19, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(31, 20, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
+(31, 20, 16, '2025-08-25', 'D', 66.00, 76.00, 'Completed'),
 (31, 22, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
 -- Student 32 (Program 14, Dept 5: Courses 17,18,19,20,23,24)
 (32, 17, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
 (32, 18, 17, '2026-01-01', 'A', 93.00, 97.00, 'Active'),
 (32, 19, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (32, 20, 16, '2025-08-25', 'B+', 86.00, 93.00, 'Completed'),
-(32, 23, 17, '2026-01-01', 'A-', 91.00, 95.00, 'Active'),
+(32, 23, 17, '2026-01-01', 'F', 49.00, 64.00, 'Active'),
 (32, 24, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 33 (Program 14)
 (33, 17, 17, '2026-01-01', 'A', 94.00, 98.00, 'Active'),
@@ -951,7 +967,7 @@ VALUES
 (33, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 34 (Program 15, Dept 5: Courses 17,18,19,20,21,22)
 (34, 17, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
-(34, 18, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
+(34, 18, 17, '2026-01-01', 'C', 72.00, 82.00, 'Active'),
 (34, 19, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (34, 20, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
 (34, 21, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
@@ -960,52 +976,52 @@ VALUES
 (35, 17, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (35, 18, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (35, 19, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(35, 20, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(35, 20, 17, '2026-01-01', 'D', 60.00, 70.00, 'Active'),
 (35, 21, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 36 (Program 16, Dept 6: Courses 21,22,23,24,25,26)
 (36, 21, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
 (36, 22, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (36, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(36, 24, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
+(36, 24, 16, '2025-08-25', 'C', 78.00, 86.00, 'Completed'),
 (36, 25, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
 (36, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 37 (Program 16)
 (37, 21, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (37, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (37, 23, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
-(37, 24, 17, '2026-01-01', 'B', 84.00, 92.00, 'Active'),
+(37, 24, 17, '2026-01-01', 'F', 50.00, 65.00, 'Active'),
 (37, 25, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 38 (Program 17, Dept 6: Courses 21,22,23,24,27,28)
 (38, 21, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (38, 22, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (38, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (38, 24, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
-(38, 27, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
+(38, 27, 17, '2026-01-01', 'C', 70.00, 80.00, 'Active'),
 (38, 28, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 39 (Program 17)
 (39, 21, 17, '2026-01-01', 'A', 95.00, 98.00, 'Active'),
 (39, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (39, 23, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
-(39, 24, 17, '2026-01-01', 'A-', 91.00, 96.00, 'Active'),
+(39, 24, 17, '2026-01-01', 'D', 65.00, 75.00, 'Active'),
 (39, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 40 (Program 18, Dept 6: Courses 21,22,23,24,25,26)
 (40, 21, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
 (40, 22, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (40, 23, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (40, 24, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(40, 25, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
+(40, 25, 17, '2026-01-01', 'F', 55.00, 70.00, 'Active'),
 (40, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 41 (Program 18)
 (41, 21, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (41, 22, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (41, 23, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(41, 24, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(41, 24, 17, '2026-01-01', 'C', 75.00, 85.00, 'Active'),
 (41, 25, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 42 (Program 19, Dept 7: Courses 25,26,27,28,1,2)
 (42, 25, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
 (42, 26, 17, '2026-01-01', 'B+', 87.00, 93.00, 'Active'),
 (42, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(42, 28, 16, '2025-08-25', 'A-', 90.00, 95.00, 'Completed'),
+(42, 28, 16, '2025-08-25', 'D', 60.00, 70.00, 'Completed'),
 (42, 1, 17, '2026-01-01', 'B', 83.00, 91.00, 'Active'),
 (42, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 43 (Program 19)
@@ -1019,26 +1035,26 @@ VALUES
 (44, 26, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (44, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (44, 28, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
-(44, 3, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active'),
+(44, 3, 17, '2026-01-01', 'C', 70.00, 80.00, 'Active'),
 (44, 4, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 45 (Program 20)
 (45, 25, 17, '2026-01-01', 'A', 95.00, 98.00, 'Active'),
 (45, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (45, 27, 16, '2025-08-25', 'B', 82.00, 90.00, 'Completed'),
-(45, 28, 17, '2026-01-01', 'A-', 91.00, 96.00, 'Active'),
+(45, 28, 17, '2026-01-01', 'F', 50.00, 65.00, 'Active'),
 (45, 3, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 46 (Program 21, Dept 7: Courses 25,26,27,28,1,2)
 (46, 25, 16, '2025-08-25', 'B+', 88.00, 94.00, 'Completed'),
 (46, 26, 17, '2026-01-01', 'A', 95.00, 98.50, 'Active'),
 (46, 27, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (46, 28, 16, '2025-08-25', 'B', 85.00, 92.00, 'Completed'),
-(46, 1, 17, '2026-01-01', 'A-', 92.00, 96.00, 'Active'),
+(46, 1, 17, '2026-01-01', 'D', 65.00, 75.00, 'Active'),
 (46, 2, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 47 (Program 21)
 (47, 25, 17, '2026-01-01', 'A', 96.00, 99.00, 'Active'),
 (47, 26, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (47, 27, 16, '2025-08-25', 'B+', 89.00, 95.00, 'Completed'),
-(47, 28, 17, '2026-01-01', 'A-', 91.00, 96.50, 'Active'),
+(47, 28, 17, '2026-01-01', 'C', 75.00, 85.00, 'Active'),
 (47, 1, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 48 (Program 22, Dept 8: Courses 29,30,31,32,33,34)
 (48, 29, 16, '2025-08-25', 'A', 94.00, 97.00, 'Completed'),
@@ -1051,13 +1067,13 @@ VALUES
 (49, 29, 17, '2026-01-01', 'B+', 88.50, 94.50, 'Active'),
 (49, 30, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 (49, 31, 16, '2025-08-25', 'A', 95.00, 98.00, 'Completed'),
-(49, 32, 17, '2026-01-01', 'B', 84.00, 92.00, 'Active'),
+(49, 32, 17, '2026-01-01', 'D', 62.00, 72.00, 'Active'),
 (49, 33, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
 -- Student 50 (Program 22)
 (50, 29, 16, '2025-08-25', 'A-', 91.00, 96.00, 'Completed'),
 (50, 30, 17, '2026-01-01', 'B+', 87.50, 93.50, 'Active'),
 (50, 31, 18, '2026-05-15', NULL, NULL, NULL, 'Enrolled'),
-(50, 32, 16, '2025-08-25', 'A', 94.50, 97.50, 'Completed'),
+(50, 32, 16, '2025-08-25', 'F', 45.00, 60.00, 'Completed'),
 (50, 34, 17, '2026-01-01', 'B', 85.00, 92.00, 'Active');
 
 INSERT INTO ResearchProjects (project_title, principal_investigator_id, department_id, funding_source, funding_amount, start_date, end_date, description, publications, outcomes)

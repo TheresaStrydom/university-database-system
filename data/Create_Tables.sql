@@ -2,29 +2,9 @@
 -- UNIVERSITY RECORD MANAGEMENT SYSTEM - DATABASE SCHEMA (MySQL)
 -- ============================================================================
 
-CREATE DATABASE IF NOT EXISTS university_records;
+DROP DATABASE IF EXISTS university_records;
+CREATE DATABASE university_records;
 USE university_records;
-
--- Drop existing tables (reverse dependency order)
-DROP TABLE IF EXISTS OrganisationMembers;
-DROP TABLE IF EXISTS StudentOrganisations;
-DROP TABLE IF EXISTS CommitteeMembers;
-DROP TABLE IF EXISTS Committees;
-DROP TABLE IF EXISTS LecturerPublications;
-DROP TABLE IF EXISTS ResearchProjectTeamMembers;
-DROP TABLE IF EXISTS ResearchProjects;
-DROP TABLE IF EXISTS CourseMaterials;
-DROP TABLE IF EXISTS Enrollments;
-DROP TABLE IF EXISTS ProgramCourses;
-DROP TABLE IF EXISTS CourseLecturers;
-DROP TABLE IF EXISTS Courses;
-DROP TABLE IF EXISTS Programs;
-DROP TABLE IF EXISTS NonAcademicStaff;
-DROP TABLE IF EXISTS Students;
-DROP TABLE IF EXISTS Lecturers;
-DROP TABLE IF EXISTS Departments;
-DROP TABLE IF EXISTS Semesters;
-DROP TABLE IF EXISTS AcademicYears;
 
 -- ============================================================================
 -- REFERENCE TABLES
@@ -139,7 +119,7 @@ enrollment_capacity INT,
 enrollment_count INT DEFAULT 0,
 schedule VARCHAR(255),
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-CHECK (level IN (1,2,3)),
+CHECK (level IN (1,2,3,4)),
 FOREIGN KEY (department_id)
 REFERENCES Departments(department_id)
 ON DELETE CASCADE

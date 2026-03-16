@@ -2,9 +2,9 @@
 -- UNIVERSITY RECORD MANAGEMENT SYSTEM - DATABASE SCHEMA (MySQL)
 -- ============================================================================
 
-DROP DATABASE IF EXISTS university_records;
-CREATE DATABASE university_records;
-USE university_records;
+DROP DATABASE IF EXISTS liverpool_project;
+CREATE DATABASE liverpool_project;
+USE liverpool_project;
 
 -- ============================================================================
 -- REFERENCE TABLES

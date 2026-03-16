@@ -1,4 +1,4 @@
-"""
+v"""
 This module is used by the GUI to execute functions that will search
 the database. The functions are:
 
@@ -64,12 +64,12 @@ def student_search_not_enrolled():
     end_date = results[0][1]
 
     query1 = f"""
-    SELECT name 
+    SELECT DISTINCT name 
     FROM students 
     WHERE graduation_status = 'Active' and name NOT IN (
     SELECT a.name
     FROM students AS a
     JOIN enrollments AS b ON a.student_id = b.student_id
     JOIN semesters AS c ON b.semester_id = c.semester_id 
-    WHERE b.enrollment_date BETWEEN '{start_date}' AND '{end_date}') """
+    WHERE b.enrollment_date BETWEEN '{start_date}' AND '{end_date}') AND a.graduation_status = 'Active' """
     return connection_context(query1)

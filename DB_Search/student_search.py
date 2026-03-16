@@ -35,13 +35,8 @@ def student_search_last_year_and_results():
     This function is used by the GUI to search for courses based on last year and results.
     :return: All the students to achieve greater than 70% and is in the final year of study.
     """
-<<<<<<< HEAD
     query1 = """
     SELECT  a.name
-=======
-    query = """
-    SELECT DISTINCT a.name
->>>>>>> origin/demo_database_interface
     FROM students AS a
     JOIN enrollments AS b ON a.student_id = b.student_id
     JOIN courses AS c ON b.course_id = c.course_id
@@ -60,7 +55,6 @@ def student_search_not_enrolled():
     This function is used by the GUI to search for students that have not enrolled in the current semester.
     :return: List of students not enrolled in the current semester.
     """
-<<<<<<< HEAD
     query = """select start_date, end_date \
                From semesters \
                where start_date <= CURRENT_DATE \
@@ -70,9 +64,6 @@ def student_search_not_enrolled():
     end_date = results[0][1]
 
     query1 = f"""
-=======
-    query = """
->>>>>>> origin/demo_database_interface
     SELECT name 
     FROM students 
     WHERE graduation_status = 'Active' and name NOT IN (
@@ -80,10 +71,5 @@ def student_search_not_enrolled():
     FROM students AS a
     JOIN enrollments AS b ON a.student_id = b.student_id
     JOIN semesters AS c ON b.semester_id = c.semester_id 
-<<<<<<< HEAD
     WHERE b.enrollment_date BETWEEN '{start_date}' AND '{end_date}') """
     return connection_context(query1)
-=======
-    WHERE b.enrollment_date BETWEEN (SELECT MAX(start_date) FROM semesters) AND (SELECT MAX(end_date) FROM semesters)) """
-    return connection_context(query)
->>>>>>> origin/demo_database_interface

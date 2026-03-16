@@ -1,4 +1,4 @@
-v"""
+"""
 This module is used by the GUI to execute functions that will search
 the database. The functions are:
 

@@ -5,7 +5,7 @@
 -- Run this after creating the database and tables.
 -- Inserts are in dependency order to avoid foreign key errors.
 
-USE university_records;
+USE liverpool_project;
 
 -- ============================================================================
 -- REFERENCE TABLES

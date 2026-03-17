@@ -64,9 +64,9 @@ def student_search_not_enrolled():
     end_date = results[0][1]
 
     query1 = f"""
-    SELECT DISTINCT name 
-    FROM students 
-    WHERE graduation_status = 'Active' and name NOT IN (
+    SELECT DISTINCT a.name 
+    FROM students as a
+    WHERE a.graduation_status = 'Active' and name NOT IN (
     SELECT a.name
     FROM students AS a
     JOIN enrollments AS b ON a.student_id = b.student_id

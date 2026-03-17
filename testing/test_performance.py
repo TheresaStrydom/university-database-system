@@ -6,6 +6,7 @@ import os
 import sys
 import time
 import psutil
+import pytest
 
 # Get the root directory of the project and add it to sys.path for imports
 root = os.path.dirname(os.path.dirname(__file__))
@@ -25,7 +26,7 @@ from DB_Search.student_search import student_search_not_enrolled, student_search
 # Measure performance of a query function, excecute time, memory usage, CPU usage, and number of rows returned. Repeat the test 10 times to get an average execution time and check for stability.
 
 
-def measure_performance(function, *args):
+def measure_performance(function,*args):
     times = []
 
     for i in range(10):
@@ -53,7 +54,7 @@ def measure_performance(function, *args):
 
 
 # List of queries to test (function, testing arguments)
-performance_tests = [
+test_performance = [
     (available_courses, ()),  # no arguments needed for this query`
     (available_departments, ()),  # no arguments needed for this query
     (search_expertise, ()),  # no arguments needed for this query
@@ -68,6 +69,6 @@ performance_tests = [
     (student_search_per_course_per_lecturer, ("CS101", "Dr. Alice Johnson"))  # course_code, lecturer_name
 ]
 
-if __name__ == "__main__":
-    for function, args in performance_tests:
-        measure_performance(function, *args)
+@pytest.mark.parametrize("function,args", test_performance)
+def test_performance (function, args):
+    measure_performance(function, *args)

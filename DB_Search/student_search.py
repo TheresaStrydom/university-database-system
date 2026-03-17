@@ -71,5 +71,5 @@ def student_search_not_enrolled():
     FROM students AS a
     JOIN enrollments AS b ON a.student_id = b.student_id
     JOIN semesters AS c ON b.semester_id = c.semester_id 
-    WHERE b.enrollment_date BETWEEN '{start_date}' AND '{end_date}') AND a.graduation_status = 'Active' """
+    WHERE a.graduation_status = 'Active' AND b.enrollment_date BETWEEN '{start_date}' AND '{end_date}') """
     return connection_context(query1)

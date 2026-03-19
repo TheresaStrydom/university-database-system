@@ -24,7 +24,7 @@ def test_tables_exist():
         query = f"""
         SELECT table_name
         FROM information_schema.tables
-       1
+        WHERE table_schema = 'university_records'
         AND table_name = '{table}'
         """
 

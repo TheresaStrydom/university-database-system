@@ -88,5 +88,4 @@ def run_query_tests():
 
     print("\n--- Query Testing Complete ---\n")
 
-if __name__ == "__main__":
-    run_query_tests()
+run_query_tests()

@@ -24,7 +24,7 @@ def test_tables_exist():
         query = f"""
         SELECT table_name
         FROM information_schema.tables
-        WHERE table_schema = 'university_records'
+        WHERE table_schema = 'liverpool_project'
         AND table_name = '{table}'
         """
 
@@ -49,7 +49,7 @@ def test_views_exist():
         query = f"""
         SELECT table_name
         FROM information_schema.views
-        WHERE table_schema = 'university_records'
+        WHERE table_schema = 'liverpool_project'
         AND table_name = '{view}'
         """
 

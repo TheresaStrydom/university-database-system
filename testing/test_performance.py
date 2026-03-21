@@ -55,17 +55,17 @@ def measure_performance(function,*args):
 
 # List of queries to test (function, testing arguments)
 test_performance = [
-    (available_courses, ()),  # no arguments needed for this query`
-    (available_departments, ()),  # no arguments needed for this query
-    (search_expertise, ()),  # no arguments needed for this query
+    (available_courses,()),  # no arguments needed for this query as it retrieves all available courses
+    (available_departments, ()),  # no arguments needed for this query as it retrieves all available departments
+    (search_expertise, ()),  # no arguments needed for this query as it retrieves all expertise areas
     (lectures_search_semester, (1,)),  # particular semester_id
     (lecturer_search_per_course, ("CS101",)),  # particular course_code
     (lecturer_search_per_expertise, ("AI, Machine Learning",)),  # expertise
     (lecturer_search_per_department, ("Computer Science",)),  # department
     (search_courses_per_department_per_lecturer, ("Computer Science", "Dr. Alice Johnson")),  # department, lecturer
-    (available_semesters, ()),  # no arguments needed for this query
-    (student_search_not_enrolled, ()),  # no arguments needed for this query
-    (student_search_last_year_and_results, ()),  # no arguments needed for this query
+    (available_semesters, ()),  # no arguments needed for this query as it retrieves all semesters
+    (student_search_not_enrolled, ()),  # no arguments needed for this query as it retrieves all students not enrolled in any courses
+    (student_search_last_year_and_results, ()),  # no arguments needed for this query as it retrieves all students enrolled in the last year along with their results
     (student_search_per_course_per_lecturer, ("CS101", "Dr. Alice Johnson"))  # course_code, lecturer_name
 ]
 

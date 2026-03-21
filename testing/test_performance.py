@@ -1,17 +1,13 @@
 """
 Perfrom Non-functional testing for all queries in DB_Search,
-including queries execution time, resources utilisation, non-functional query validation , repeat run for checking average execution time to ensure stability.
+including queries execution time, resources utilisation, non-functional query validation , 
+repeat run for checking average execution time to ensure stability.
 """
 import os
-import sys
 import time
 import psutil
 import pytest
 
-# Get the root directory of the project and add it to sys.path for imports
-root = os.path.dirname(os.path.dirname(__file__))
-if root not in sys.path:
-    sys.path.insert(0, root)
 
 from DB_Search.course_search import available_courses, search_courses_per_department_per_lecturer
 from DB_Search.department_search import available_departments
@@ -22,14 +18,15 @@ from DB_Search.semester_search import available_semesters
 from DB_Search.student_search import student_search_not_enrolled, student_search_last_year_and_results, \
     student_search_per_course_per_lecturer
 
-
-# Measure performance of a query function, excecute time, memory usage, CPU usage, and number of rows returned. Repeat the test 10 times to get an average execution time and check for stability.
+# Measure performance of a query function, excecute time,memory usage, CPU usage, and number of rows returned.
+# Repeat the test 10 times to get an average execution time.
 
 
 def measure_performance(function,*args):
     times = []
+    result = None
 
-    for i in range(10):
+    for _ in range(10):
         start = time.time()
         result = function(*args)
         end = time.time()
@@ -53,22 +50,23 @@ def measure_performance(function,*args):
     print("--------------------------------")
 
 
-# List of queries to test (function, testing arguments)
-test_performance = [
-    (available_courses,()),  # no arguments needed for this query as it retrieves all available courses
-    (available_departments, ()),  # no arguments needed for this query as it retrieves all available departments
-    (search_expertise, ()),  # no arguments needed for this query as it retrieves all expertise areas
-    (lectures_search_semester, (1,)),  # particular semester_id
-    (lecturer_search_per_course, ("CS101",)),  # particular course_code
-    (lecturer_search_per_expertise, ("AI, Machine Learning",)),  # expertise
-    (lecturer_search_per_department, ("Computer Science",)),  # department
-    (search_courses_per_department_per_lecturer, ("Computer Science", "Dr. Alice Johnson")),  # department, lecturer
-    (available_semesters, ()),  # no arguments needed for this query as it retrieves all semesters
-    (student_search_not_enrolled, ()),  # no arguments needed for this query as it retrieves all students not enrolled in any courses
-    (student_search_last_year_and_results, ()),  # no arguments needed for this query as it retrieves all students enrolled in the last year along with their results
-    (student_search_per_course_per_lecturer, ("CS101", "Dr. Alice Johnson"))  # course_code, lecturer_name
+# List of queries to test (function, testing arguments depending on the query)
+test_queries_list = [
+    (available_courses,()),
+    (available_departments, ()),
+    (search_expertise, ()),
+    (lectures_search_semester, ("17",)),
+    (lecturer_search_per_course, ("CS101",)),
+    (lecturer_search_per_expertise, ("AI, Machine Learning",)),
+    (lecturer_search_per_department, ("Computer Science",)),
+    (search_courses_per_department_per_lecturer, ("CS401","Database Systems")),
+    (available_semesters, ()),
+    (student_search_not_enrolled, ()),
+    (student_search_last_year_and_results, ()),
+    (student_search_per_course_per_lecturer, ("CS101", "Dr. Alice Johnson"))
 ]
 
-@pytest.mark.parametrize("function,args", test_performance)
+@pytest.mark.parametrize("function,args", test_queries_list)
 def test_performance (function, args):
     measure_performance(function, *args)
+    

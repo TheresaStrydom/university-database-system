@@ -59,7 +59,7 @@ test_queries_list = [
     (lecturer_search_per_course, ("CS101",)),
     (lecturer_search_per_expertise, ("AI, Machine Learning",)),
     (lecturer_search_per_department, ("Computer Science",)),
-    (search_courses_per_department_per_lecturer, ("CS401","Database Systems")),
+    (search_courses_per_department_per_lecturer, ("Computer Science", "Dr. Alice Johnson")),
     (available_semesters, ()),
     (student_search_not_enrolled, ()),
     (student_search_last_year_and_results, ()),

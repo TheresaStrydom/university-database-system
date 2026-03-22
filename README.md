@@ -7,6 +7,7 @@ The following libraries are required:<br>
 - mysql-connector-python -for SQL injection mitigation<br>
 - psutil - for Performance testing<br>
 - pytest - for Automatic testing run<br>
+MySQL Server is required to storing and managing application data. <br>
 
 ## Installation
 
@@ -17,7 +18,19 @@ Step 2: Open a terminal in the project directory.
 Step 3: install dependencies via below prompt in the IDE Terminal:<br>
 `pip install -r requirements.txt`
 
-Step 4: Run the application:<br>
+## Database Setup
+
+Step 1 : Open MySQL Workbrench
+
+Step 2:  Import schema from below file <br>
+`data/Create_Tables.sql`
+
+Setp 3 :  Import data from below file <br>
+`data/Populate_Tables.sql`
+
+## Run the application 
+
+Run the application as below prompt:<br>
 `python interface.py`
 <br>
 
